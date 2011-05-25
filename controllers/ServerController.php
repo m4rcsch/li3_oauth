@@ -49,17 +49,17 @@ class ServerController extends \lithium\action\Controller {
 	}
 
 	public function authorize() {
-		if (!empty($this->request->query['oauth_token'])) {
-			$token = $this->request->query['oauth_token'];
+		$token = $this->request->get('query:oauth_token');
+		if ($token) {
 			$data = Provider::fetch($token);
 		}
 
-		if (!empty($this->request->data['allow'])) {
+		/*if (!empty($this->request->data['allow'])) {
 
 		}
 		if (!empty($this->request->data['deny'])) {
 
-		}
+		}*/
 		return compact('token');
 	}
 
