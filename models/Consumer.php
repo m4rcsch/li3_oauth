@@ -104,7 +104,7 @@ class Consumer extends \lithium\core\StaticObject {
 	 * @return void
 	 */
 	public static function store($key, $value) {
-		return static::$_service->storage->write($key, $value);
+		return static::$_service->connection()->write($key, $value);
 	}
 
 	/**
@@ -114,7 +114,7 @@ class Consumer extends \lithium\core\StaticObject {
 	 * @return void
 	 */
 	public static function fetch($key) {
-		return static::$_service->storage->read($key);
+		return static::$_service->connection()->read($key);
 	}
 
 	/**
@@ -124,7 +124,7 @@ class Consumer extends \lithium\core\StaticObject {
 	 * @return void
 	 */
 	public static function delete($key) {
-		return static::$_service->storage->remove($key);
+		return static::$_service->connection()->remove($key);
 	}
 }
 
